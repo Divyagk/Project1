@@ -285,7 +285,7 @@ function displaySwap() {
 
      //Anger
    $(document).on("click", "#anger-button", function () {
-  console.log("Your fear button is working!")
+  console.log("Your anger button is working!")
   options = Math.floor(Math.random() * anger.length);
   pass=anger[options];
   drinkCall(pass);
@@ -318,7 +318,7 @@ function displaySwap() {
  });
 
  //neutral
- $(document).on("click", "#neutral", function(){
+ $(document).on("click", "#neutral-button", function(){
   console.log("Your neutral button is working!")
   options = Math.floor(Math.random() * neutral.length);
   pass=neutral[options];
