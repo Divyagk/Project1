@@ -284,7 +284,7 @@ function displaySwap() {
 
 
      //Anger
-   $(document).on("click", "#anger-button", function () {
+   $(document).on("click", "#angry-button", function () {
   console.log("Your anger button is working!")
   options = Math.floor(Math.random() * anger.length);
   pass=anger[options];
