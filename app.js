@@ -364,7 +364,7 @@ function displaySwap() {
              // images
             
              $("#drink-image").attr("src", response.strDrinkThumb);
-            //  pic.attr("height", "200");
+            /// pic.attr("height", "200");
             //  $("#drink-image").append(pic);
  });
             $("#drink-close").on("click", function(){
