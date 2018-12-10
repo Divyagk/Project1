@@ -7,6 +7,21 @@ Socially conscious? No. Fun? Yup.
 Mobile-based! 
 Give her a spin: <br><br>
 
+[App]()
+
+_Contributing Team Members:_
+**Divya Gopalakrishnan**
+[Github]()
+
+**Ashley Hurlburt**
+[Github](https://github.com/CodingAshley1983) 
+
+**Kenneth Smith**
+[Github](https://github.com/KennethS13)
+<br>
+
+
+
 
 
 
