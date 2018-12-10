@@ -8,7 +8,9 @@ Mobile-based!
 
 Technologies Used:
 1.HTML5
+
 2.CSS bootstrap
+
 3.Javascript
 4.Jquery
 5.Firebase
