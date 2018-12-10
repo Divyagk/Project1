@@ -6,6 +6,13 @@ A fun, interactive way to discover new drink-recipes! Pic Your Poison allows use
 Socially conscious? No. Fun? Yup. 
 Mobile-based! 
 
+Technologies Used:
+1.HTML5
+2.CSS bootstrap
+3.Javascript
+4.Jquery
+5.Firebase
+
 
 
 Give her a spin: <br><br>
