@@ -10,6 +10,7 @@ Give her a spin: <br><br>
 [App](https://divyagk.github.io/Project1/)
 
 _Contributing Team Members:_
+
 **Divya Gopalakrishnan**
 [Github](https://github.com/Divyagk)
 
