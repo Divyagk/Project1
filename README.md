@@ -7,11 +7,11 @@ Socially conscious? No. Fun? Yup.
 Mobile-based! 
 Give her a spin: <br><br>
 
-[App]()
+[App](https://divyagk.github.io/Project1/)
 
 _Contributing Team Members:_
 **Divya Gopalakrishnan**
-[Github]()
+[Github](https://github.com/Divyagk)
 
 **Ashley Hurlburt**
 [Github](https://github.com/CodingAshley1983) 
