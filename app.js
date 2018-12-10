@@ -1,10 +1,9 @@
 var storageRef;
 var uploadTask;
+var uploadRef;
 var downloadURLRef;
 var emoResultsRef;
-
-
-
+var filename;
 
 
 function uploadProgress(snapshot) {
@@ -43,19 +42,31 @@ function uploadSuccess() {
   uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
     console.log('File available at', downloadURL);
     imgSwap(downloadURL);
-    downloadURLRef = downloadURL; //Make it global for later, except you should be able to do faceCall(downloadURL) to pass it in
 
+    downloadURLRef = downloadURL; //Make it global for later, except you should be able to do faceCall(downloadURL) to pass it in
+    console.log("This is the file name:")
     $('#uploadModal').modal('hide')
     $("#emo-button").show();
+    $(".card-text").text("Awww, cute. Now let's guess your feels...")
 
   });
 
 
 }
 
+
+
+
+
+
+
+
 function imgSwap(image) {
   $("#card-image").attr('src', image);
 }
+
+
+
 
 function upload() {
   event.preventDefault();
@@ -64,6 +75,7 @@ function upload() {
   console.log(newImg[0].name)
 
   var file = newImg[0];
+  window.filename= newImg[0].name
 
   // Create the file metadata
   var metadata = {
@@ -72,13 +84,31 @@ function upload() {
 
   // Upload file and metadata to the object 'images/mountains.jpg'
   uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
+  console.log(storageRef)
 
   // Listen for state changes, errors, and completion of the upload.
   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
     uploadProgress,
     uploadError,
-    uploadSuccess);
-  $(".card-text").text("Awww, cute. Now let's guess your feels...")
+    uploadSuccess,
+  
+ );
+
+}
+function storageDelete() {
+
+  // Create a reference to the file to delete
+
+console.log("Filename within the storagedelete function:", window.filename)
+
+storageRef.child('images/' + window.filename).delete().then(function () {
+    console.log("file deleted")
+    // File deleted successfully
+  }).catch(function (error) {
+    console.log(error);
+  });
+
+
 }
 
 function displaySwap() {
@@ -134,7 +164,7 @@ function displaySwap() {
     var options;
     var pass;
     
-   var happy= ['14360', '14578', '14730', '15615', '15395', '12738', '17266', '17827', '17190', '14107', '17224', '16958', '13807', '15182', '12560', '13940', '15200', '11024', '15951'];
+   var happy= ['14360', '14578', '14730', '15615', '15395', '12738', '17266', '17827', '17190', '14107', '17224', '16958', '13807', '15182', '12560', '13940', '15200', '11024'];
    var fear= [14642,
        14688,
        15178,
@@ -150,10 +180,7 @@ function displaySwap() {
        17074,
        11055,
        13086,
-       17060,
-       11407,
-       11403,
-       17230
+       17060
      ]
   
    var anger=  [
@@ -170,9 +197,7 @@ function displaySwap() {
        14306,
        16100,
        13202,
-       11368,
-       11239,
-       17135
+       11368
      ]
    
    
@@ -193,10 +218,6 @@ function displaySwap() {
        17288,
        11117,
        11120,
-       12798,
-       12800,
-       11157,
-       16047
      ]
   
   
@@ -238,11 +259,7 @@ function displaySwap() {
        13652,
        16405,
        14360,
-       11010,
-       13899,
-       11053,
-       15567,
-       11034
+       11010
      ]
     
      var neutral= [14598,
@@ -269,6 +286,9 @@ function displaySwap() {
   console.log("Your happy button is working!")
   options = Math.floor(Math.random() * happy.length);
   pass= happy[options];
+  happy.splice(options, 1);
+
+
   drinkCall(pass);
  });
 
@@ -278,6 +298,7 @@ function displaySwap() {
   console.log("Your fear button is working!")
   options = Math.floor(Math.random() * fear.length);
   pass= fear[options];
+  fear.splice(options, 1);
   drinkCall(pass);
  });
 
@@ -285,9 +306,10 @@ function displaySwap() {
 
      //Anger
    $(document).on("click", "#angry-button", function () {
-  console.log("Your anger button is working!")
+  console.log("Your fear button is working!")
   options = Math.floor(Math.random() * anger.length);
   pass=anger[options];
+  anger.splice(options, 1);
   drinkCall(pass);
  });
 
@@ -297,7 +319,7 @@ function displaySwap() {
   console.log("Your sad button is working!")
   options = Math.floor(Math.random() * sadness.length);
   pass= sadness[options];
-  
+  sadness.splice(options, 1);
   drinkCall(pass);
  });
 
@@ -306,7 +328,7 @@ function displaySwap() {
   console.log("Your disgust button is working!")
   options = Math.floor(Math.random() * disgust.length);
   pass= disgust[options];
-  
+  disgust.splice(options, 1);
   drinkCall(pass);
  });
  // //surprise
@@ -314,6 +336,7 @@ function displaySwap() {
   console.log("Your surprise button is working!")
   options = Math.floor(Math.random() * surprise.length);
   pass= surprise[options]
+  surprise.splice(options, 1);
   drinkCall(pass);
  });
 
@@ -322,55 +345,45 @@ function displaySwap() {
   console.log("Your neutral button is working!")
   options = Math.floor(Math.random() * neutral.length);
   pass=neutral[options];
-  console.log()
+  neutral.splice(options, 1);
   drinkCall(pass);
  });
  
 
  //cocktailDB call 
  function drinkCall(){
- $.ajax({
-   url: drinkURL + pass,
-   method: "GET"
- }).then(function (response) {
-
-   console.log(response)
-             console.log(response.drinks[0].strDrink);
-             console.log(response.drinks[0].strDrinkThumb);
-             console.log(response.drinks[0].strIngredient1);
-             console.log(response.drinks[0].strIngredient2);
-             console.log(response.drinks[0].strIngredient3);
-             console.log(response.drinks[0].strIngredient4);
-             console.log(response.drinks[0].strIngredient5);
-             console.log(response.drinks[0].strIngredient6);
-             
-
-   var response= response.drinks[0];
-              
-              $("#drink-modal").show();
-             // drink name
-             $("#drink-title").text("Drink Name: " + response.strDrink);
-             // ingredients
-             var ingredient = $("<div>");
-             var p1 = $("<p>").text("Ingredient 1: " + response.strIngredient1);
-             var p2 = $("<p>").text("Ingredient 2: " + response.strIngredient2);
-             var p3 = $("<p>").text("Ingredient 3: " + response.strIngredient3);
-             var p4 = $("<p>").text("Ingredient 4: " + response.strIngredient4);
-             var p5 = $("<p>").text("Ingredient 5: " + response.strIngredient5);
-             var p6 = $("<p>").text("Ingredient 6: " + response.strIngredient6);
-             var p7 = $("<p>").text("Instructions: " + response.strInstructions);
-                  
-             $("#drink-body").append(p1, p2, p3, p4, p5, p6, p7);
-             // images
-            
-             $("#drink-image").attr("src", response.strDrinkThumb);
-            /// pic.attr("height", "200");
-            //  $("#drink-image").append(pic);
- });
-            $("#drink-close").on("click", function(){
-              $("#drink-modal").hide();
-            });
-}
+   $.ajax({
+     url: drinkURL + pass,
+     method: "GET"
+   }).then(function (response) {              
+     var response= response.drinks[0];
+     $("#drink-modal").show();
+     $("#drink-title").text(response.strDrink);
+     // ingredients & Instructions;
+     $("#drink-body").empty();
+     for (var i in response) { 
+       if  (response.hasOwnProperty(i)) {
+         var n = i.indexOf("strIngredient");
+         if (n >= 0) { 
+           var respText = response[i];
+           if (respText.length > 0) {
+             console.log(i + " -> " + response[i]);
+             var pIngr = $("<p>").text("Ingredient: " + respText);
+             $("#drink-body").append(pIngr);
+           }
+         }
+       }          
+     }    
+     var pIns = $("<p>").text("Instructions: " + response.strInstructions);
+     $("#drink-body").append(pIns);
+     // images   
+     $("#drink-image").attr("src", response.strDrinkThumb);
+     storageDelete();
+   });
+   $("#drink-close").on("click", function(){
+   $("#drink-modal").hide();
+   });
+ }
 
 $(document).ready(function () {
   // Initialize Firebase
@@ -392,6 +405,9 @@ $(document).ready(function () {
   $("#drink-modal").hide();
 
   storageRef = firebase.storage().ref();
+  
+
+
 
   // FACE++ API START
   function faceCall() {
@@ -426,6 +442,7 @@ $(document).ready(function () {
             $("#drink-button").show();
             $("#emo-button").hide();
             displaySwap(emoResultsRef);
+            
 
           }
         })
@@ -441,7 +458,5 @@ $(document).ready(function () {
 $("#uploadBtn").on("click", upload);
 $("#emo-button").on("click", faceCall);
 
+
  });
-
-
-
