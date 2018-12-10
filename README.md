@@ -6,7 +6,7 @@ A fun, interactive way to discover new drink-recipes! Pic Your Poison allows use
 Socially conscious? No. Fun? Yup. 
 Mobile-based! 
 
-Technologies Used:
+<h3>Technologies Used:</h3>
 
 1.HTML5
 
@@ -20,7 +20,7 @@ Technologies Used:
 
 6.Ajax
 
-API's Used:
+<h3>API's Used:</h3>
 
 1.Face++ (https://console.faceplusplus.com/dashboard)
 
