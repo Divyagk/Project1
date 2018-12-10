@@ -7,13 +7,24 @@ Socially conscious? No. Fun? Yup.
 Mobile-based! 
 
 Technologies Used:
+
 1.HTML5
 
 2.CSS bootstrap
 
 3.Javascript
+
 4.Jquery
+
 5.Firebase
+
+6.Ajax
+
+API's Used:
+
+1.Face++ (https://console.faceplusplus.com/dashboard)
+
+2.Cocktail Database (https://www.thecocktaildb.com/api.php)
 
 
 
