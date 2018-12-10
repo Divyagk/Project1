@@ -26,6 +26,13 @@ Mobile-based!
 
 2.Cocktail Database (https://www.thecocktaildb.com/api.php)
 
+<h3>Challenges</h3>
+
+1.Image url from the firebase was not recognized by the face++ api, because the image url from firebase was not encoded.
+**encodeURIComponent** method was used to solve the issue.
+
+
+
 
 
 Give her a spin: <br><br>

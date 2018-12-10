@@ -75,7 +75,7 @@ function upload() {
   console.log(newImg[0].name)
 
   var file = newImg[0];
-  window.filename= newImg[0].name
+  window.filename = newImg[0].name
 
   // Create the file metadata
   var metadata = {
@@ -91,17 +91,17 @@ function upload() {
     uploadProgress,
     uploadError,
     uploadSuccess,
-  
- );
+
+  );
 
 }
 function storageDelete() {
 
   // Create a reference to the file to delete
 
-console.log("Filename within the storagedelete function:", window.filename)
+  console.log("Filename within the storagedelete function:", window.filename)
 
-storageRef.child('images/' + window.filename).delete().then(function () {
+  storageRef.child('images/' + window.filename).delete().then(function () {
     console.log("file deleted")
     // File deleted successfully
   }).catch(function (error) {
@@ -139,251 +139,251 @@ function displaySwap() {
   } else if (emoResultsRef === 'anger') {
     $(".card-text").text(angerText);
     $("#drink-button").attr("id", angerButton);
-  } 
-    else if (emoResultsRef === "fear") {
+  }
+  else if (emoResultsRef === "fear") {
     $(".card-text").text(fearText);
     $("#drink-button").attr("id", fearButton);
-  } 
-    else if (emoResultsRef === "digsust") {
+  }
+  else if (emoResultsRef === "digsust") {
     $(".card-text").text(disgustText);
     $("#drink-button").attr("id", disgustButton);
-  } 
-    else if (emoResultsRef === "surprise") {
+  }
+  else if (emoResultsRef === "surprise") {
     $(".card-text").text(surprisedText);
     $("#drink-button").attr("id", surprisedButton);
-  } 
-    else if (emoResultsRef === "neutral") {
+  }
+  else if (emoResultsRef === "neutral") {
     $(".card-text").text(neutralText);
     $("#drink-button").attr("id", neutralButton);
   }
 }
 
-  //cocktail DB and drink receipe  call:
-    //  var cocktailQuery="https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
-    var drinkURL="https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="; 
-    var options;
-    var pass;
-    
-   var happy= ['14360', '14578', '14730', '15615', '15395', '12738', '17266', '17827', '17190', '14107', '17224', '16958', '13807', '15182', '12560', '13940', '15200', '11024'];
-   var fear= [14642,
-       14688,
-       15178,
-       15761,
-       14610,
-       16419,
-       17250,
-       17211,
-       16178,
-       16273,
-       11028,
-       14584,
-       17074,
-       11055,
-       13086,
-       17060
-     ]
-  
-   var anger=  [
-       14065,
-       12870,
-       15597,
-       16041,
-       13222,
-       13070,
-       13861,
-       14087,
-       17122,
-       12107,
-       14306,
-       16100,
-       13202,
-       11368
-     ]
-   
-   
-     var sadness = [17105,
-       15288,
-       16134,
-       16271,
-       17020,
-       13194,
-       16998,
-       17245,
-       11000,
-       17229,
-       11008,
-       14071,
-       11118,
-       11119,
-       17288,
-       11117,
-       11120,
-     ]
-  
-  
-     var disgust= [15082,
-       15515,
-       15743,
-       16295,
-       17118,
-       16403,
-       17120,
-       17220,
-       17380,
-       13128,
-       14466,
-       17829,
-       12101,
-       11023,
-       14598,
-       13581,
-       17222,
-       13070
-     ]
-   
-   
-  
-     var surprise= [14602,
-       16108,
-       16333,
-       16942,
-       13940,
-       17184,
-       14782,
-       11798,
-       11872,
-       13535,
-       16992,
-       13072,
-       13198,
-       13652,
-       16405,
-       14360,
-       11010
-     ]
-    
-     var neutral= [14598,
-      13282,
-      13395,
-      11145,
-      17196,
-      11291,
-      11006,
-      13731,
-      13162,
-      11012,
-      11013,
-      11014,
-      11020,
-      12562,
-      11021,
-      12792,
-      11026,
-      16202]
+//cocktail DB and drink receipe  call:
+//  var cocktailQuery="https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
+var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
+var options;
+var pass;
 
- //Happy
- $(document).on("click", "#happy-button", function () {
+var happy = ['14360', '14578', '14730', '15615', '15395', '12738', '17266', '17827', '17190', '14107', '17224', '16958', '13807', '15182', '12560', '13940', '15200', '11024'];
+var fear = [14642,
+  14688,
+  15178,
+  15761,
+  14610,
+  16419,
+  17250,
+  17211,
+  16178,
+  16273,
+  11028,
+  14584,
+  17074,
+  11055,
+  13086,
+  17060
+]
+
+var anger = [
+  14065,
+  12870,
+  15597,
+  16041,
+  13222,
+  13070,
+  13861,
+  14087,
+  17122,
+  12107,
+  14306,
+  16100,
+  13202,
+  11368
+]
+
+
+var sadness = [17105,
+  15288,
+  16134,
+  16271,
+  17020,
+  13194,
+  16998,
+  17245,
+  11000,
+  17229,
+  11008,
+  14071,
+  11118,
+  11119,
+  17288,
+  11117,
+  11120,
+]
+
+
+var disgust = [15082,
+  15515,
+  15743,
+  16295,
+  17118,
+  16403,
+  17120,
+  17220,
+  17380,
+  13128,
+  14466,
+  17829,
+  12101,
+  11023,
+  14598,
+  13581,
+  17222,
+  13070
+]
+
+
+
+var surprise = [14602,
+  16108,
+  16333,
+  16942,
+  13940,
+  17184,
+  14782,
+  11798,
+  11872,
+  13535,
+  16992,
+  13072,
+  13198,
+  13652,
+  16405,
+  14360,
+  11010
+]
+
+var neutral = [14598,
+  13282,
+  13395,
+  11145,
+  17196,
+  11291,
+  11006,
+  13731,
+  13162,
+  11012,
+  11013,
+  11014,
+  11020,
+  12562,
+  11021,
+  12792,
+  11026,
+  16202]
+
+//Happy
+$(document).on("click", "#happy-button", function () {
   console.log("Your happy button is working!")
   options = Math.floor(Math.random() * happy.length);
-  pass= happy[options];
+  pass = happy[options];
   happy.splice(options, 1);
 
 
   drinkCall(pass);
- });
+});
 
 
- // //Fear
-      $(document).on("click", "#fear-button", function () {
+// //Fear
+$(document).on("click", "#fear-button", function () {
   console.log("Your fear button is working!")
   options = Math.floor(Math.random() * fear.length);
-  pass= fear[options];
+  pass = fear[options];
   fear.splice(options, 1);
   drinkCall(pass);
- });
+});
 
 
 
-     //Anger
-   $(document).on("click", "#angry-button", function () {
+//Anger
+$(document).on("click", "#angry-button", function () {
   console.log("Your fear button is working!")
   options = Math.floor(Math.random() * anger.length);
-  pass=anger[options];
+  pass = anger[options];
   anger.splice(options, 1);
   drinkCall(pass);
- });
+});
 
 
-  //Sadness
-  $(document).on("click", "#sad-button", function () {
+//Sadness
+$(document).on("click", "#sad-button", function () {
   console.log("Your sad button is working!")
   options = Math.floor(Math.random() * sadness.length);
-  pass= sadness[options];
+  pass = sadness[options];
   sadness.splice(options, 1);
   drinkCall(pass);
- });
+});
 
- // //Disgust
-  $(document).on("click", "#disigust-button", function () {
+// //Disgust
+$(document).on("click", "#disigust-button", function () {
   console.log("Your disgust button is working!")
   options = Math.floor(Math.random() * disgust.length);
-  pass= disgust[options];
+  pass = disgust[options];
   disgust.splice(options, 1);
   drinkCall(pass);
- });
- // //surprise
- $(document).on("click", "#surprised-button", function () {
+});
+// //surprise
+$(document).on("click", "#surprised-button", function () {
   console.log("Your surprise button is working!")
   options = Math.floor(Math.random() * surprise.length);
-  pass= surprise[options]
+  pass = surprise[options]
   surprise.splice(options, 1);
   drinkCall(pass);
- });
+});
 
- //neutral
- $(document).on("click", "#neutral-button", function(){
+//neutral
+$(document).on("click", "#neutral-button", function () {
   console.log("Your neutral button is working!")
   options = Math.floor(Math.random() * neutral.length);
-  pass=neutral[options];
+  pass = neutral[options];
   neutral.splice(options, 1);
   drinkCall(pass);
- });
- 
+});
 
- //cocktailDB call 
- function drinkCall(){
-   $.ajax({
-     url: drinkURL + pass,
-     method: "GET"
-   }).then(function (response) {              
-     var response= response.drinks[0];
-     $("#drink-modal").show();
-     $("#drink-title").text(response.strDrink);
-     // ingredients & Instructions;
-     $("#drink-body").empty();
-     for (var i in response) { 
-       if  (response.hasOwnProperty(i)) {
-         var n = i.indexOf("strIngredient");
-         if (n >= 0) { 
-           var respText = response[i];
-           if (respText.length > 0) {
-             console.log(i + " -> " + response[i]);
-             var pIngr = $("<p>").text("Ingredient: " + respText);
-             $("#drink-body").append(pIngr);
-           }
-         }
-       }          
-     }    
-     var pIns = $("<p>").text("Instructions: " + response.strInstructions);
-     $("#drink-body").append(pIns);
-     // images   
-     $("#drink-image").attr("src", response.strDrinkThumb);
-     storageDelete();
-   });
-   $("#drink-close").on("click", function(){
-   $("#drink-modal").hide();
-   });
- }
+
+//cocktailDB call 
+function drinkCall() {
+  $.ajax({
+    url: drinkURL + pass,
+    method: "GET"
+  }).then(function (response) {
+    var response = response.drinks[0];
+    $("#drink-modal").show();
+    $("#drink-title").text(response.strDrink);
+    // ingredients & Instructions;
+    $("#drink-body").empty();
+    for (var i in response) {
+      if (response.hasOwnProperty(i)) {
+        var n = i.indexOf("strIngredient");
+        if (n >= 0) {
+          var respText = response[i];
+          if (respText.length > 0) {
+            console.log(i + " -> " + response[i]);
+            var pIngr = $("<p>").text("Ingredient: " + respText);
+            $("#drink-body").append(pIngr);
+          }
+        }
+      }
+    }
+    var pIns = $("<p>").text("Instructions: " + response.strInstructions);
+    $("#drink-body").append(pIns);
+    // images   
+    $("#drink-image").attr("src", response.strDrinkThumb);
+    storageDelete();
+  });
+  $("#drink-close").on("click", function () {
+    $("#drink-modal").hide();
+  });
+}
 
 $(document).ready(function () {
   // Initialize Firebase
@@ -405,7 +405,7 @@ $(document).ready(function () {
   $("#drink-modal").hide();
 
   storageRef = firebase.storage().ref();
-  
+
 
 
 
@@ -417,9 +417,9 @@ $(document).ready(function () {
     //   // Performing AJAX GET request
 
     $.ajax({
-        url: queryURL,
-        method: "POST"
-      })
+      url: queryURL,
+      method: "POST"
+    })
       //     // After data comes back from the request
       .then(function (response) {
         // storing the data from the AJAX request in the results variable
@@ -442,7 +442,7 @@ $(document).ready(function () {
             $("#drink-button").show();
             $("#emo-button").hide();
             displaySwap(emoResultsRef);
-            
+
 
           }
         })
@@ -454,9 +454,9 @@ $(document).ready(function () {
 
 
 
-  
-$("#uploadBtn").on("click", upload);
-$("#emo-button").on("click", faceCall);
+
+  $("#uploadBtn").on("click", upload);
+  $("#emo-button").on("click", faceCall);
 
 
- });
+});
