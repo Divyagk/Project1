@@ -1,0 +1,182 @@
+body {
+    background-color: black;
+      background-repeat: none;
+}
+.container-head {
+    
+   background-color: rgb(63, 19, 63);
+   padding-left: 30%;
+
+   /* align-content: center; */
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 80px;
+    height: 100px;
+    color: white;
+    
+    
+}
+
+.container-main {
+    background-color: rgb(31, 28, 28);
+    height: 650px;
+    width: 40%;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 10px;
+
+    
+}
+.card {
+    margin: 0 auto;
+    height: 550px;
+    width: 450px;
+    background-color: ghostwhite;
+    
+}
+.card-text{
+    padding-left:20px;
+    text-align: center;
+}
+.card-img-top{
+   
+    margin: 0 auto;
+    justify-content: center;
+    height: 350px;
+    width: 300px;
+    background-color:black;
+}
+.card-footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+#drink-modal {
+    width: 600px;
+    max-width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    max-height: 100%;
+    overflow: auto;
+}
+#drink-body {
+    /* height:800px;
+    width: 100%; */
+  word-wrap: break-word;
+    font-size: 12px;
+}
+
+#drink-table{
+    background-color: rgb(31, 28, 28);
+    width: 40%;
+    justify-content: center;
+    margin: 0 auto;
+    background-image: url(http://24.media.tumblr.com/06d078d7bb17e36c08c4488c388b9e32/tumblr_mhesviJUn11s1jj9ro1_500.gif); 
+    background-image: initial;
+    padding-top: 10px;
+
+    
+
+}
+
+#contact-image{
+    align-content: flex-start;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    
+   
+}
+/* Float Shadow */
+.hvr-float-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-float-shadow:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    /* W3C */
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+  }
+  .hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    /* move the element up by 5px */
+  }
+  .hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+  }
+  
+.figcaption {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 16px;
+    color: limegreen;
+    background-color:  white;
+
+}
+
+@media only screen and (max-width: 600px){
+
+    .btn{
+        flex-basis: 100%;
+    }
+    .container-main{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .container-head{
+        width: 100%;
+        font-size: 35px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 100px;
+      
+        padding: 0;
+
+    }
+    .card{
+        background-color: ghostwhite;
+        width:90vh;
+        height:90vh;
+    }
+
+    .card-img-top{
+        width:80%;
+        margin: 0 auto;
+    }
+    .card-footer{
+        background-color:black;
+    }
+    #contact-image{
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        margin: 0 auto;
+    }
+}
