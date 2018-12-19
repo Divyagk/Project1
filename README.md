@@ -6,7 +6,7 @@ A fun, interactive way to discover new drink-recipes! Pic Your Poison allows use
 Socially conscious? No. Fun? Yup. 
 Mobile-based! 
 
-https://divyagk.github.io/Project1/
+[App] https://divyagk.github.io/Project1/
 
 <h3>Technologies Used:</h3>
 
@@ -37,9 +37,9 @@ https://divyagk.github.io/Project1/
 
 
 
-Give her a spin: <br><br>
+<!-- Give her a spin: <br><br> -->
 
-[App](https://divyagk.github.io/Project1/)
+
 
 _Contributing Team Members:_
 
